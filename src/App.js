@@ -1,25 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useRef } from 'react'
+import Chart from 'chart.js'
+import cfg from './configChart'
 
-function App() {
+function ChartHome() {
+  const chartRef = useRef(null)
+
+  useEffect(() => {
+    const myChartRef = chartRef.current.getContext('2d')
+    new Chart(myChartRef, cfg)
+  }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <section className='bitcoinChartPrice'>
+      <canvas id='myChart' ref={chartRef} />
+    </section>
+  )
 }
 
-export default App;
+export default ChartHome

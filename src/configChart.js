@@ -19,7 +19,7 @@ const formatter = new Intl.NumberFormat('en-US', {
 
 const optionsDate = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
 
-export default {
+const cfg = {
   data: {
     datasets: [{
       label: 'Precio',
@@ -39,9 +39,6 @@ export default {
     },
     legend: {
       display: false
-    },
-    tooltips: {
-      enabled: false
     },
     scales: {
       xAxes: [{
@@ -102,3 +99,5 @@ export default {
     }
   }
 }
+
+export default cfg
